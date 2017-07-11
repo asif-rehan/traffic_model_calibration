@@ -6,6 +6,7 @@ Created on Jun 30, 2017
 import numpy
 import pandas
 import scipy.optimize as optimize
+import math
 
 def main():
     print process_m(func1, range)
@@ -37,7 +38,7 @@ def get_rmse_m1(params):
                                       d=params[2], 
                                       lp=params[3]))
     diff = q_hat - data['Flow']
-    rmse = sum(diff ** 2)/diff.shape[0]
+    rmse = math.sqrt((diff ** 2).sum()/diff.shape[0])
     
     return rmse
 
